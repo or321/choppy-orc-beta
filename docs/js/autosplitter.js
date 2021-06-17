@@ -180,7 +180,10 @@ _autosplitter = (function () {
 	*/
 	var onUpdate = function (frameTime) {
 		// Update the FPS counter for the current frame
-		$("#fps_counter").text((1 / frameTime).toFixed());
+		if (_settings.getState().updateFpsEverySecond)
+			$("#fps_counter").text(window.game.no);	
+		else
+			$("#fps_counter").text((1 / frameTime).toFixed());
 
 		// Don't update timers on the menu or credits
 		if (!state.in_level) return;

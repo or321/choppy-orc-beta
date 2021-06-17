@@ -187,13 +187,27 @@
 	<div id="settings_modal" class="modal">
 
 		<!-- Modal content -->
-		<div class="modal-content">
+		<div class="modal-content width-60 settings-modal">
 			<span class="close">&times;</span>
 			<h1>Settings</h1>
 			  
 			<hr/>
 
-			<span>modal content</span>
+			<table class="h-align-center" cellpadding="5" cellspacing="15">
+				<tr>
+					<td>Music active (can be toggled with N):</td>
+					<td><input type="checkbox" id="music_active_flag" checked /></td>
+				</tr>
+				<tr>
+					<td>Update FPS counter every:</td>
+					<td>
+						<input type="radio" name="fps_update_rate" value="second" checked />
+						<label for="female">Second</label>
+						<input type="radio" name="fps_update_rate" value="frame" />
+						<label for="other">Frame</label>
+					</td>
+				</tr>
+			</table>
 		</div>
 	  
 	</div>
