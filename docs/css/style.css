@@ -127,6 +127,13 @@ canvas {
 	text-decoration: underline;
 }
 
+.settings-button{
+	color: #bbb;
+	cursor: pointer;
+}
+.settings-button:hover{
+	color: #fff;
+}
 
 .fps-counter {
 	float: right;
