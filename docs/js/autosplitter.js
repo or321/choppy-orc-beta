@@ -258,6 +258,9 @@ _autosplitter = (function () {
 			.css("top", canvas_marginTop + "px")
 			.width(canvas_w * (12 / 100))
 			.fitText(0.8);
+
+		$("#settings_modal_content")
+			.fitText(4);
 	};
 
 	/**********
@@ -339,6 +342,9 @@ _autosplitter = (function () {
 	});
 
 	return {
+		getState: function(){
+			return state;
+		},
 		onSound: onSound,
 		onScene: onScene,
 		onUpdate: onUpdate,

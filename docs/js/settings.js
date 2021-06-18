@@ -3,11 +3,13 @@ _settings = function () {
         isMusicActive: true,
         updateFpsEverySecond: true,
         isCustomFps: false,
-        customFps: null,
+        customFps: 60,
 	};
 
 	$music_active_flag = $("#music_active_flag");
 	$fps_update_rate_flag = $("input[name=fps_update_rate]");
+	$custom_fps_flag = $("#custom_fps_flag");
+	$custom_fps_list = $("#custom_fps");
 
 	$(document).keypress(function (e) {
 		// Detect press on "O" - toggle the settings modal
@@ -34,6 +36,15 @@ _settings = function () {
 
 	$fps_update_rate_flag.on("change", function(){
 		state.updateFpsEverySecond = $(this).val() === "second";
+	});
+
+	$custom_fps_flag.on("change", function(){
+		state.isCustomFps = $(this).prop("checked");
+		$("#custom_fps_row").toggle(state.isCustomFps);
+	});
+
+	$custom_fps_list.on("change", function(){
+		state.customFps = $(this).val();
 	});
 
 	return {
