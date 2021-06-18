@@ -153,3 +153,8 @@ canvas {
 	font-size: 27px;
 	text-align: center;
 }
+
+.settings-modal {
+	font-weight: bold;
+	font-size: 27px;
+}

@@ -3211,11 +3211,30 @@ function lc(e, q, r, t) {
 						this.Ds = this.Vd
 					} else if (4 === this.Mf) {
 						this.Rx(a);
+						
+						// AUTOSPLITTER 5.2 - use custome FPS
+						if (f && !_settings.getState().isCustomFps){
+							f(function () {
+								g.go();
+							});
+						}
+						else {
+							var fps = _settings.getState().customFps;
+							var raf_timeout = 1000 / fps;
+
+							setTimeout(function () {
+								g.go();
+							}, raf_timeout);
+						}
+						
+						/*
 						f ? f(function () {
 							g.go()
 						}) : setTimeout(function () {
 							g.go()
 						}, 16);
+						*/
+
 						return
 					}
 				}
@@ -3326,7 +3345,21 @@ function lc(e, q, r, t) {
 		if (this.Da) {
 			var k = Wa();
 			if (b || !this.kj || a) {
-				a || (f ? this.Jp = f(this.qu) : this.nq = setTimeout(this.qu, this.Bh ? 1 : 16));
+
+				// AUTOSPLITTER 5.1 - use custome FPS
+				if (!a) {
+					if (f && !_settings.getState().isCustomFps) {
+						this.Jp = f(this.qu);
+					} else {
+						var fps = _settings.getState().customFps;
+						var raf_timeout = 1000 / fps;
+
+						this.nq = setTimeout(this.qu, this.Bh ? 1 : raf_timeout);
+					}
+				}
+
+				//a || (f ? this.Jp = f(this.qu) : this.nq = setTimeout(this.qu, this.Bh ? 1 : 16));
+
 				d = d || k;
 				var g = this.Bc;
 				((b = (document.mozFullScreen || document.webkitIsFullScreen || document.fullScreen || !!document.msFullscreenElement) && !this.Le) || this.Nl) && 0 < this.wh && (g = this.wh);
