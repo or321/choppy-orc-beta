@@ -11,10 +11,16 @@ _settings = function () {
 	$custom_fps_flag = $("#custom_fps_flag");
 	$custom_fps_list = $("#custom_fps");
 
+	$("#settings_button").on("click", function(){
+		$("#settings_modal").show();
+		$("#settings_modal_content").fitText(4);
+	});
+
 	$(document).keypress(function (e) {
 		// Detect press on "O" - toggle the settings modal
 		if (e.which == 79 || e.which == 111) {
-            $("#settings_modal").toggle();
+			$("#settings_modal").toggle();
+			$("#settings_modal_content").fitText(4);
 		}
 
 		/*
